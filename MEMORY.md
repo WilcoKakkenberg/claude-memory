@@ -10,3 +10,4 @@
 - [SolarEdge battery installation](project_solaredge_battery_installation.md) — expected 2026-09-07, impacts EMHASS config + zero-export automation
 - [Secrets swept up in cat dumps](feedback_secrets_in_cat_dumps.md) — broad `cat` on QNAP repeatedly grabs secrets.yaml/tokens; never use the value, flag + recommend rotation
 - [kuma2mqtt pipeline](project_kuma2mqtt_pipeline.md) — new/retagged Kuma monitors miss `/metrics` until `docker restart uptime-kuma`; old topics stay as retained ghosts
+test entry: hook-sync-verificatie 2026-09-22T12:12:59+02:00
