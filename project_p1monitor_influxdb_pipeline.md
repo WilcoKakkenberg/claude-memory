@@ -5,7 +5,7 @@ metadata:
   node_type: memory
   type: project
   originSessionId: 4cb00618-d47b-4d31-bb3c-4b14c860b24c
-  modified: 2026-09-07T10:10:47.889Z
+  modified: 2026-09-22T10:24:18.272Z
 ---
 
 Live, confirmed-working architecture (as of 2026-09-01):
@@ -50,5 +50,7 @@ bind-mounted resolv.conf on that one service. See
 for the full incident (this DNS bug plus two further config bugs -
 `var_model` and `historic_days_to_retrieve` - it uncovered, plus the
 history backfill above).
+
+**Historical-import scripts:** separate from the live MQTT->Telegraf pipeline above, there used to be local scripts (on the old Windows 11 laptop, `C:\Users\Wilco\Documents\P1monitor\`) that imported historical readings from a P1 Monitor MySQL/MariaDB dump into InfluxDB (measurement `electricity`, field `verbr_kwh_periode`, tagged `resolution: "hour"`/`"day"` - this is the data the 2026-09-07 Flux backfill in [project_emhass_ml_forecast_refit](project_emhass_ml_forecast_refit.md) later converted into the `p1monitor_consumption_kw` schema). Their exact original implementation (language, real table/column names) was never recorded and wasn't recalled when asked on 2026-09-22. Since moving to a Fedora laptop, a from-scratch Python template reproducing the known target result lives at `/home/wilco/github/P1monitor/import_p1monitor_to_influxdb.py` - untested, with placeholder table/column names that need adjusting against the real dump schema before use.
 
 **How to apply:** before proposing changes to this pipeline, re-read `telegraf/telegraf.conf` and the EMHASS `config.json` live from the NAS rather than assuming — this area has already been debugged through several non-obvious gotchas (see above) that are easy to accidentally "fix" back into a broken state. Also don't assume a repo file still exists just because it was read earlier in a session — `packages/energy_influxdb.yaml` is a confirmed example of a file that got deleted from master mid-session. See also [project_emhass_ml_forecast_refit](project_emhass_ml_forecast_refit.md) for the related ML-cache warning (variable name changes each time the load sensor reference changes, currently `p1monitor_consumption_kw`).

@@ -2,7 +2,7 @@
 - [Public IP security checks](project_public_ip_security_checks.md) — recurring request; only 80/443 open behind NPM, HA/QNAP not directly exposed, no nmap installed
 - [No guessing in HA packages](feedback_no_guessing_ha_packages.md) — always verify/ask for IPs, entity IDs, etc.; never guess
 - [EMHASS ML forecast refit](project_emhass_ml_forecast_refit.md) — fully fixed 2026-09-07 (DNS + var_model + historic_days_to_retrieve bugs); backfilled 3y history, R2 -0.20 → 0.38
-- [P1Monitor → InfluxDB pipeline](project_p1monitor_influxdb_pipeline.md) — bucket `p1monitor`, MQTT broker 192.168.10.5:1883, scripts in C:\Users\Wilco\Documents\P1monitor\
+- [P1Monitor → InfluxDB pipeline](project_p1monitor_influxdb_pipeline.md) — bucket `p1monitor`, MQTT broker 192.168.10.5:1883, historical-import scripts reconstructed at /home/wilco/github/P1monitor/ (Fedora)
 - [MkDocs documentation site](project_mkdocs_documentation_site.md) — auto-sync+build live on QNAP (172.10.1.27:8005); next: split architectuur.md diagram, need NPM proxy host list
 - [Zonnepanelen jaarbalans project](project_zonnepanelen_jaarbalans.md) — saldo-inloop + terugleverkosten-guardrail, deadline 11-11-2026
 - [Check dependencies before rewriting HA packages](feedback_check_dependencies_before_rewrite.md) — grep whole repo for entity_ids before removing them from a rewrite
