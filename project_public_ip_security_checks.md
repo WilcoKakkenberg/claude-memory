@@ -5,7 +5,7 @@ metadata:
   node_type: memory
   type: project
   originSessionId: b1a1a73d-5242-4d8e-aaa4-cb4baf0cc867
-  modified: 2026-08-17T06:50:55.436Z
+  modified: 2026-09-22T10:15:22.729Z
 ---
 
 User recurringly asks (in Dutch, "doe een vulnerability en security check op mijn publieke ip") for a port/vulnerability scan of their home network's public IP.
@@ -18,4 +18,4 @@ The actual external domain/hostname is stored via `!secret config_external_url` 
 
 **Why:** Recurring request — the user wants to keep tabs on their home network's external attack surface (HA + QNAP NAS behind NPM).
 
-**How to apply:** No `nmap` is installed in this environment, so the check is done via a PowerShell `TcpClient`-based connect scan of common risky ports (remote admin, DB, NAS, torrent, VPN, self-hosted-dashboard ports) plus `curl`/`openssl s_client` for HTTP headers and TLS behavior on any open web ports. Public IP changes (dynamic/home connection) — always re-resolve it (e.g. `curl ifconfig.me`) rather than reusing a cached value. This is treated as a "regular" read-only action on the user's own infrastructure, no confirmation needed before running.
+**How to apply:** On the old Windows 11 laptop, no `nmap` was installed, so the check was done via a PowerShell `TcpClient`-based connect scan plus `curl`/`openssl s_client` for HTTP headers and TLS behavior on any open web ports. Since 2026-09-22 we work from a Fedora laptop instead, where `nmap` IS installed (`/usr/bin/nmap`) — prefer a real `nmap` scan (e.g. `nmap -Pn -p <risky-ports> <public-ip>`) over re-deriving the PowerShell approach. Public IP changes (dynamic/home connection) — always re-resolve it (e.g. `curl ifconfig.me`) rather than reusing a cached value. This is treated as a "regular" read-only action on the user's own infrastructure, no confirmation needed before running.

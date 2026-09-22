@@ -4,7 +4,7 @@ description: Commit/push to any git repo (not just HomeAssistant) requires expli
 metadata:
   type: feedback
   originSessionId: 196e6bb1-90c5-4c0f-8017-4aae7c626445
-  modified: 2026-08-29T21:32:04.190Z
+  modified: 2026-09-22T10:14:56.359Z
 ---
 
 Never commit or push to a git repository unless the user explicitly grants
@@ -13,7 +13,9 @@ the HomeAssistant repo (see [[feedback_git_remote_leading]] for that
 repo's stricter "never push at all" rule).
 
 **Why:** After approving a commit+push to the MkDocs docs repo
-(`C:\Users\Wilco\Documents\github\MkDocs`) with "ja commit en push", the
+(then at `C:\Users\Wilco\Documents\github\MkDocs` on the Windows 11
+laptop, now `/home/wilco/github/MkDocs` on Fedora) with "ja commit en
+push", the
 user immediately added "dit mag alleen als ik toestemming geef" - making
 explicit that this was a per-instance approval, not a standing
 authorization to commit/push that repo going forward without asking
