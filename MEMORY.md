@@ -11,3 +11,5 @@
 - [Secrets swept up in cat dumps](feedback_secrets_in_cat_dumps.md) — broad `cat` on QNAP repeatedly grabs secrets.yaml/tokens; never use the value, flag + recommend rotation
 - [kuma2mqtt pipeline](project_kuma2mqtt_pipeline.md) — new/retagged Kuma monitors miss `/metrics` until `docker restart uptime-kuma`; old topics stay as retained ghosts
 - [P1Monitor 3x25A downgrade investigation](project_p1monitor_3x25a_downgrade.md) — historical fase-data looks fine (<25A almost always) but has a 13.5mo gap incl. battery install; logging just re-enabled 2026-09-22, re-check before acting
+- [New branch for local changes](feedback_new_branch_for_local_changes.md) — every change in a new branch from fresh origin/master; never commit/push/merge to master (user does that on HA); origin/master always leading
+- [Snapserver Bluetooth](project_snapserver_bluetooth.md) — Pixel 9a → BlueALSA → bt-capture → Snapserver (buffer 400 ms) works, docs merged (MkDocs PR #1, #2); open: Synergy 65 as extra snapclient
